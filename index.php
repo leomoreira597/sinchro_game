@@ -27,7 +27,7 @@
     <?php
         if(isset($_SESSION['userName']) || isset($_SESSION['userSobName'])){
 
-          echo'<p class="right hide-on-med-and-down">'.$_SESSION['userName'].'</p>';
+          echo'<a href="./pages/userLogado.php"><p class="right hide-on-med-and-down">'.$_SESSION['userName'].'</p></a>';
 
         }else{
          
@@ -37,21 +37,16 @@
           
         }  
     ?>
-      <!--<ul class="right hide-on-med-and-down">
-        <li><a href="./pages/login.html"><i class="material-icons">login</i></a></li>Login
-      </ul>-->
-
-    
-    
+      
     </div>
     
     <div class="nav-content">
       <ul class="tabs tabs-transparent">
-        <li class="tab"><a href="./pages/deck.html">Deck</a></li>
-        <li class="tab"><a href="./pages/edicoes_especiais.html">Edições Especiais</a></li>
-        <li class="tab"><a href="./pages/booster.html">Booster</a></li>
-        <li class="tab"><a href="./pages/avulsas.html">Alvusas</a></li>
-        <li class="tab"><a href="./pages/sobre.html">Sobre</a></li>
+        <li class="tab"><a href="./pages/deck.php">Deck</a></li>
+        <li class="tab"><a href="./pages/edicoes_especiais.php">Edições Especiais</a></li>
+        <li class="tab"><a href="./pages/booster.php">Booster</a></li>
+        <li class="tab"><a href="./pages/avulsas.php">Alvusas</a></li>
+        <li class="tab"><a href="./pages/sobre.php">Sobre</a></li>
       </ul>
     </div>
   </nav>
@@ -107,19 +102,6 @@
       <div class="col s3"><img src="./img/cortinamn.jpeg" width="200px" height="300">Cortina De Mago Negro</div>
       <div class="col s3"><img src="./img/pequnamaga.jpeg" width="200px" height="300">Pequena Maga Negra</div>
     </div>
-    <div class="row">
-      <div class="col s3"><img src="./img/almas_dos_magos.png"width="200px" height="300">Almas Dos Magos</div>
-      <div class="col s3"><img src="./img/draggon_negro_de_olhos_vermelhos.png"width="200px" height="300"/>Dragoon Negro De Olhos Vermelhos</div>
-      <div class="col s3"><img src="./img/endymion.png"width="200px" height="300"/>Endymion, O Poderoso Mestre Da Magia</div>
-      <div class="col s3"><img src="./img/reflexo_de_endymion.png"width="200px" height="300"/>Reflexo de Endymion</div>
-    </div>
-    <div class="row">
-      <div class="col s3"><img src="./img/Magistrado_de_endymion.png"width="200px" height="300">Magistrado De Endymion</div>
-      <div class="col s3"><img src="./img/serva_de_endymion.png"width="200px" height="300">Serva De Endymion</div>
-      <div class="col s3"><img src="./img/Ladino_de_endymion.jpeg"width="200px" height="300">Ladino De Endymion</div>
-      <div class="col s3"><img src="./img/crusado_de_endymion.jpeg"width="200px" height="300">Crusado De Endymion</div>
-    </div>
-  </div>
 
 
 <script type="text/javascript" src="./js/materialize.min.js"></script>
