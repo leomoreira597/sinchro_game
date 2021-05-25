@@ -1,5 +1,7 @@
 <html>
-
+<?php
+    session_start();  //iniciando a sessão
+?>
 <head>
   <!--Import Google Icon Font-->
   <meta charset="utf-8" />
@@ -20,9 +22,27 @@
     <div class="nav-wrapper">
       <a href="../index.php" class="brand-logo">Synchro-Game</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
+      
+    <!-- login e dados do usuario --> 
+    <?php
+        if(isset($_SESSION['userName']) || isset($_SESSION['userSobName'])){
+
+          echo'<p class="right hide-on-med-and-down">'.$_SESSION['userName'].'</p>';
+
+        }else{
+         
+          echo'<ul class="right hide-on-med-and-down">
+          <li><a href="./pages/login.html"><i class="material-icons">login</i></a></li>Login
+          </ul>';
+          
+        }  
+    ?>
+      <!--<ul class="right hide-on-med-and-down">
         <li><a href="./pages/login.html"><i class="material-icons">login</i></a></li>Login
-      </ul>
+      </ul>-->
+
+    
+    
     </div>
     
     <div class="nav-content">
