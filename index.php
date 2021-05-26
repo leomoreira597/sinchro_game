@@ -1,6 +1,7 @@
 <html>
 <?php
     session_start();  //iniciando a sessão
+
 ?>
 <head>
   <!--Import Google Icon Font-->
@@ -110,9 +111,6 @@
 
           //executando
           $result01 = mysqli_query($conn, $sql01);
-          /*$result02 = mysqli_query($conn, $sql02);
-          $result03 = mysqli_query($conn, $sql03);
-          $result04 = mysqli_query($conn, $sql04);*/
 
           //exibindo
           if(mysqli_num_rows($result01) > 0){
@@ -120,9 +118,15 @@
             while($linha = mysqli_fetch_assoc($result01)){
               echo"<div class='col s3'>";
                 echo"<img src='./".$linha["path_img"]."' width='200px' height='200px />'";
+                echo"<p>".$linha["id_produto"]."</p>";
                 echo"<p>".$linha["nome_produto"]."</p>";
                 echo"<p>".$linha["preco"]."</p>";
                 echo"<p>".$linha["qtd_estoque"]."</p>";
+                echo"<form action='./php/compraBack.php' method='POST'>";
+                  echo"<input type='hidden' name='id_produto' value=".$linha["id_produto"]." />";
+                  echo"<input type='hidden' name='qtdProduto' value=".$linha["qtd_estoque"]." />";
+                  echo"<button type='submit'>Comprar</button>";
+                echo"</from>";  
               echo"</div>";
 
             } 
@@ -137,13 +141,51 @@
 
           if(mysqli_num_rows($result01) > 0){
 
-            while($linha = mysqli_fetch_assoc($result01)){
+            while($linha1 = mysqli_fetch_assoc($result01)){
               echo"<div class='col s3'>";
-                echo"<img src='./".$linha["path_img"]."' width='200px' height='200px />'";
-                echo"<p>".$linha["nome_produto"]."</p>";
-                echo"<p>".$linha["preco"]."</p>";
-                echo"<p>".$linha["qtd_estoque"]."</p>";
+                echo"<img src='./".$linha1["path_img"]."' width='200px' height='200px />'";
+                echo"<p>".$linha1["id_produto"]."</p>";
+                echo"<p>".$linha1["nome_produto"]."</p>";
+                echo"<p>".$linha1["preco"]."</p>";
+                echo"<p>".$linha1["qtd_estoque"]."</p>"; 
+              
+
+              //guardando
+              $testeId = $linha1["id_produto"];
+              $testeQtd = $linha1["qtd_estoque"];
+
+            }
+
+              //botao de compra
+              echo"<form action='./php/compraBack.php' method='POST'>";
+                    echo"<input type='hidden' name='id_produto' value=$testeId />";
+                    echo"<input type='hidden' name='qtdProduto' value=$testeQtd />";
+                    echo"<button type='submit'>Comprar</button>";
+              echo"</from>";
+
+            echo"</div>";  
+
+          }else{
+
+            echo"<script>alert('Resultado 0, olha seu banco de dados.');</script>";
+
+          }
+
+          mysqli_free_result($result01);  //limpando o result01 da variavel
+          $result01 = mysqli_query($conn, $sql03);  //executando
+
+          if(mysqli_num_rows($result01) > 0){
+
+            while($linha2 = mysqli_fetch_assoc($result01)){
+              echo"<div class='col s3'>";
+                echo"<img src='./".$linha2["path_img"]."' width='200px' height='200px />'";
+                echo"<p>".$linha2["id_produto"]."</p>";
+                echo"<p>".$linha2["nome_produto"]."</p>";
+                echo"<p>".$linha2["preco"]."</p>";
+                echo"<p>".$linha2["qtd_estoque"]."</p>";
                 echo"<form action='./php/compraBack.php' method='POST'>";
+                  echo"<input type='hidden' name='id_produto' value=".$linha2["id_produto"]." />";
+                  echo"<input type='hidden' name='qtdProduto' value=".$linha2["qtd_estoque"]." />";
                   echo"<button>Comprar</button>";
                 echo"</from>";  
               echo"</div>";
@@ -155,37 +197,24 @@
 
           }
 
-          mysqli_free_result($result01); //limpando o result01 da variavel
-          $result01 = mysqli_query($conn, $sql03);  //executando
-
-          if(mysqli_num_rows($result01) > 0){
-
-            while($linha = mysqli_fetch_assoc($result01)){
-              echo"<div class='col s3'>";
-                echo"<img src='./".$linha["path_img"]."' width='200px' height='200px />'";
-                echo"<p>".$linha["nome_produto"]."</p>";
-                echo"<p>".$linha["preco"]."</p>";
-                echo"<p>".$linha["qtd_estoque"]."</p>";
-              echo"</div>";
-
-            } 
-          }else{
-
-            echo"<script>alert('Resultado 0, olha seu banco de dados.');</script>";
-
-          }
-
           mysqli_free_result($result01);  //limpando o result01 da variavel
+          mysqli_free_result($linha); //limpando a linha
           $result01 = mysqli_query($conn, $sql04);
 
           if(mysqli_num_rows($result01) > 0){
 
-            while($linha = mysqli_fetch_assoc($result01)){
+            while($linha3 = mysqli_fetch_assoc($result01)){
               echo"<div class='col s3'>";
-                echo"<img src='./".$linha["path_img"]."' width='200px' height='200px />'";
-                echo"<p>".$linha["nome_produto"]."</p>";
-                echo"<p>".$linha["preco"]."</p>";
-                echo"<p>".$linha["qtd_estoque"]."</p>";
+                echo"<img src='./".$linha3["path_img"]."' width='200px' height='200px />'";
+                echo"<p>".$linha3["id_produto"]."</p>";
+                echo"<p>".$linha3["nome_produto"]."</p>";
+                echo"<p>".$linha3["preco"]."</p>";
+                echo"<p>".$linha3["qtd_estoque"]."</p>";
+                echo"<form action='./php/compraBack.php' method='POST'>";
+                  echo"<input type='hidden' name='id_produto' value=".$linha3["id_produto"]." />";
+                  echo"<input type='hidden' name='qtdProduto' value=".$linha3["qtd_estoque"]." />";
+                  echo"<button>Comprar</button>";
+                echo"</from>";  
               echo"</div>";
 
             } 
@@ -196,7 +225,7 @@
           }
 
 
-
+          mysqli_free_result($result01);  //limpando o result01 da variavel
           mysqli_close($conn);
 
         ?>
