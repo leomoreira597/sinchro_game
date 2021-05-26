@@ -97,11 +97,117 @@
 
   <div class="container">
     <div class="row">
+        <!--chamando os produtos-->
+        <?php
+
+          include('./php/conect.php');  //chamando a conexao
+
+          //comando sql armazenado nas variaveis
+          $sql01 = "SELECT id_produto, nome_produto, preco, qtd_estoque, path_img FROM Produtos where id_produto = 26";
+          $sql02 = "SELECT id_produto, nome_produto, preco, qtd_estoque, path_img FROM Produtos where id_produto = 27";
+          $sql03 = "SELECT id_produto, nome_produto, preco, qtd_estoque, path_img FROM Produtos where id_produto = 28";
+          $sql04 = "SELECT id_produto, nome_produto, preco, qtd_estoque, path_img FROM Produtos where id_produto = 29";
+
+          //executando
+          $result01 = mysqli_query($conn, $sql01);
+          /*$result02 = mysqli_query($conn, $sql02);
+          $result03 = mysqli_query($conn, $sql03);
+          $result04 = mysqli_query($conn, $sql04);*/
+
+          //exibindo
+          if(mysqli_num_rows($result01) > 0){
+
+            while($linha = mysqli_fetch_assoc($result01)){
+              echo"<div class='col s3'>";
+                echo"<img src='./".$linha["path_img"]."' width='200px' height='200px />'";
+                echo"<p>".$linha["nome_produto"]."</p>";
+                echo"<p>".$linha["preco"]."</p>";
+                echo"<p>".$linha["qtd_estoque"]."</p>";
+              echo"</div>";
+
+            } 
+          }else{
+
+            echo"<script>alert('Resultado 0, olha seu banco de dados.');</script>";
+
+          }
+
+          mysqli_free_result($result01);  //limpando o result01 da variavel
+          $result01 = mysqli_query($conn, $sql02);
+
+          if(mysqli_num_rows($result01) > 0){
+
+            while($linha = mysqli_fetch_assoc($result01)){
+              echo"<div class='col s3'>";
+                echo"<img src='./".$linha["path_img"]."' width='200px' height='200px />'";
+                echo"<p>".$linha["nome_produto"]."</p>";
+                echo"<p>".$linha["preco"]."</p>";
+                echo"<p>".$linha["qtd_estoque"]."</p>";
+                echo"<form action='./php/compraBack.php' method='POST'>";
+                  echo"<button>Comprar</button>";
+                echo"</from>";  
+              echo"</div>";
+
+            } 
+          }else{
+
+            echo"<script>alert('Resultado 0, olha seu banco de dados.');</script>";
+
+          }
+
+          mysqli_free_result($result01); //limpando o result01 da variavel
+          $result01 = mysqli_query($conn, $sql03);  //executando
+
+          if(mysqli_num_rows($result01) > 0){
+
+            while($linha = mysqli_fetch_assoc($result01)){
+              echo"<div class='col s3'>";
+                echo"<img src='./".$linha["path_img"]."' width='200px' height='200px />'";
+                echo"<p>".$linha["nome_produto"]."</p>";
+                echo"<p>".$linha["preco"]."</p>";
+                echo"<p>".$linha["qtd_estoque"]."</p>";
+              echo"</div>";
+
+            } 
+          }else{
+
+            echo"<script>alert('Resultado 0, olha seu banco de dados.');</script>";
+
+          }
+
+          mysqli_free_result($result01);  //limpando o result01 da variavel
+          $result01 = mysqli_query($conn, $sql04);
+
+          if(mysqli_num_rows($result01) > 0){
+
+            while($linha = mysqli_fetch_assoc($result01)){
+              echo"<div class='col s3'>";
+                echo"<img src='./".$linha["path_img"]."' width='200px' height='200px />'";
+                echo"<p>".$linha["nome_produto"]."</p>";
+                echo"<p>".$linha["preco"]."</p>";
+                echo"<p>".$linha["qtd_estoque"]."</p>";
+              echo"</div>";
+
+            } 
+          }else{
+
+            echo"<script>alert('Resultado 0, olha seu banco de dados.');</script>";
+
+          }
+
+
+
+          mysqli_close($conn);
+
+        ?>
+
+    </div>
+    <!--<div class="row">
       <div class="col s3"><img src="./img/os_magos_negros.png" width="200px" height="300"/>Os Magos Negros</div>
       <div class="col s3"><img src="./img/mago_negro.jpeg" width="200px" height="300">Mago Negro</div>
       <div class="col s3"><img src="./img/cortinamn.jpeg" width="200px" height="300">Cortina De Mago Negro</div>
       <div class="col s3"><img src="./img/pequnamaga.jpeg" width="200px" height="300">Pequena Maga Negra</div>
-    </div>
+    </div>-->
 
 
 <script type="text/javascript" src="./js/materialize.min.js"></script>
