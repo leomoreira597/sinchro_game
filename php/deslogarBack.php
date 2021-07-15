@@ -11,7 +11,7 @@ function deslogar($value){
 		session_destroy(); //destroindo a sessões
 
 		echo"<script>alert('Você foi deslogado com sucesso!');</script>";
-		echo"<script>location.href='../index.html';</script>";
+		echo"<script>location.href='../index.php';</script>";
 
 	}
 

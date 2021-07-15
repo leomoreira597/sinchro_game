@@ -44,6 +44,7 @@
 			<form action="../php/deslogarBack.php" method="POST">
 				<input type="hidden" name="deslogar" value="0">
 				<button>Deslogar</button>
+				<a href="../index.php"><h3>Ir as Compras</h3></a>
 			</form>
 		</center>
 

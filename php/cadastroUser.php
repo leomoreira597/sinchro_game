@@ -19,37 +19,37 @@
         <form class="col s12" action="cadastroBack.php" method="POST">
           <div class="row">
             <div class="input-field col s6">
-              <input  id="nome" name="nome" type="text" class="validate">
-              <label for="nome">Nome</label>
+              <input  id="nome" name="nome" type="text" class="validate" placeholder="Nome">
+             
             </div>
             <div class="input-field col s6">
-              <input id="sobrenome" name="sobrenome" type="text" class="validate">
-              <label for="sobrenome">Sobrenome</label>
+              <input id="sobrenome" name="sobrenome" type="text" class="validate" placeholder="Sobrenome">
+  
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="senha" name="senha" type="password" class="validate">
-              <label for="senha">Senha</label>
+              <input id="senha" name="senha" type="password" class="validate" placeholder="Senha">
+          
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="rua" name="rua" type="text" class="validate">
-                <label for="Rua">Rua</label>
+                <input id="rua" name="rua" type="text" class="validate" placeholder="Rua">
+           
               </div>
               <div class="input-field col s12">
-                <input id="cep" name="cep" type="text" class="validate">
-                <label for="Cep">Cep</label>
+                <input id="cep" name="cep" type="text" class="validate" placeholder="Cep">
+           
               </div>
               <div class="input-field col s12">
-                <input id="numero" name="numero" type="text" class="validate">
-                <label for="numero">Numero</label>
+                <input id="numero" name="numero" type="text" class="validate" placeholder="numero">
+              
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" name="email" type="email" class="validate">
-                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" class="validate" placeholder="email">
+              
               </div>
             </div>
             <button class="btn waves-effect waves-light" type="submit" name="action">Finalizar Cadastro
@@ -58,5 +58,11 @@
           </form>
         </div>
       </div>
+      <script>
+          $(document).ready(function() {
+    M.updateTextFields();
+  });
+        
+      </script>
     </body>
   </html>
